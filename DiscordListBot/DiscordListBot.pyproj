@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b50988d7-8df3-4185-89f1-09a51b7da5d4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DiscordListBot.py</StartupFile>
+    <StartupFile>discordListBot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DiscordListBot.py" />
+    <Compile Include="configuration.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="discordListBot.py" />
+    <Compile Include="lists.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

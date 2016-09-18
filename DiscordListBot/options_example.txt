@@ -1,0 +1,7 @@
+[required]
+# The token for your bot to connect with the server
+token = 
+
+[optional]
+# the previx character or set of characters to indicate a command to the bot in the chat
+prefix = !
