@@ -10,7 +10,7 @@ import lists
 
 class ListBot(discord.Client):
     def __init__(self):
-        self.config = configuration.config('options.txt')
+        self.config = configuration.Config()
         self.notebook = lists.notebook()
         super().__init__()
 
