@@ -61,19 +61,20 @@ class notebook:
         self.lists = []
 
     def add_to_list(self, list_name, new_line):
-        addToList = get_list(self, list_name)
+        addToList = self.get_list(list_name)
 
         if addToList == None:
-            addToList = create_list(self, list_name)
+            addToList = self.create_list(list_name)
 
-        addToList.addItem(new_line)
+        addToList.add_item(new_line)
 
     def create_list(self, list_name):
-        if contains_list(list_name):
-            return False
+        if self.contains_list(list_name):
+            return None
 
-        self.lists.append(listFile(list_name))
-        return True
+        newList = listFile(list_name)
+        self.lists.append(newList)
+        return newList
 
     def get_list(self, list_name):
         for list in self.lists:

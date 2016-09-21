@@ -14,11 +14,13 @@ class ListBot(discord.Client):
         self.notebook = lists.notebook()
         super().__init__()
 
+
     async def on_ready(self):
         print('Logged in as')
         print(self.user.name)
         print(self.user.id)
         print('------')
+
 
     def run(self):
         try:
@@ -30,6 +32,7 @@ class ListBot(discord.Client):
 
         finally:
             self.loop.close()
+
 
     async def on_message(self, message):
         await self.wait_until_ready()
@@ -47,23 +50,20 @@ class ListBot(discord.Client):
         command = command[len(self.config.prefix):].lower().strip()
 
         if command == 'add':
-            add_note(self, args)
+            self.add_note(*args)
 
-    def add_note(self, args):
-        argLen = len(args)
 
-        if argLen == 0:
+    def add_note(self, fileName, *args):
+        if fileName == None:
             return
 
-        listName = args[0]
-        args.pop(0)
         newLine = ' '.join(args)
 
-        self.notebook.add_to_list(listName, newLine)
+        self.notebook.add_to_list(fileName, newLine)
 
-
-        return
 
 if __name__ == '__main__':
     bot = ListBot()
-    bot.run()
+    #bot.run()
+    args = "list1 things to add to the method thing".split()
+    bot.add_note(*args)
